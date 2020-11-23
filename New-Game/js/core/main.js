@@ -1,4 +1,5 @@
-/*
+
+
 var distance = function (A, B) {
     return Math.hypot(A.x - B.x, A.y - B.y);
 }
@@ -8,7 +9,13 @@ function r2d(radians) {
 }
 
 
-var joueur = new JOUEUR(10, 10, 90, 0);
+let background = document.getElementById('background');
+
+background.addEventListener('load', function(){
+    ctx.drawImage(image ,  0, 0 , canvas.width , canvas.height);
+}, false);
+
+var joueur = new JOUEUR(10, 10, 50, 25);
 var i = 0;
 var nb_monster = 0;
 var canvas = document.getElementById("canvas");
@@ -205,15 +212,6 @@ var draw = function (ctx) {
 
     joueur.draw(ctx);
 }
-loop();*/
-let canvas = document.getElementById('canvas');
-let ctx = canvas.getContext('2d');
-let image = document.getElementById('background');
-let gamer = document.getElementById('joueur');
+loop();
 
-
-image.addEventListener('load', function(){
-    ctx.drawImage(image ,  0, 0 , canvas.width , canvas.height);
-    ctx.drawImage(gamer, 350, 250, 50, 25);
-}, false);
 
