@@ -44,24 +44,24 @@ var BONUS = function (x, y) {
                 }
                 break;
             case 2:
-                perso.bonus = "killer";
+                joueur.bonus = "killer";
                 setTimeout(function() {
-                    perso.bonus = "";
+                    joueur.bonus = "";
                 }, this.timer);
-                console.log(perso.bonus);
+                console.log(joueur.bonus);
                 break;
             case 3 :
-                perso.bonus = "ghost";
+                joueur.bonus = "ghost";
                 setTimeout(function() {
-                    perso.bonus = "";
+                    joueur.bonus = "";
                 }, this.timer);
                 break;
             case 4 :
-                perso.bonus = "runner";
+                joueur.bonus = "runner";
                 setTimeout(function() {
-                    perso.bonus = "";
+                    joueur.bonus = "";
                 }, this.timer);
-                console.log(perso.bonus);
+                console.log(joueur.bonus);
 
                 break;
         }
