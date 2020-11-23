@@ -7,7 +7,7 @@ var PROJECTILE = function(x,y,a,v, dmax=400){
   this.v=v;
   this.max = dmax;
   this.d=0;
-  this.face="💩";
+  this.face="./img/Bullet.png";
   this.stopped=false;
 
   this.avancer = function(){
