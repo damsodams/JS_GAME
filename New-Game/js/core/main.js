@@ -26,9 +26,9 @@ ctx.textAlign = "center";
 ctx.textBaseline = "middle";
 
 for (i = 0; i < 5; i++) {
-    if(joueur.bonus == "ghost"){
-        var newMechant = new MECHANT(10,10);
-    }else {
+    if (joueur.bonus == "ghost") {
+        var newMechant = new MECHANT(10, 10);
+    } else {
         MECHANTS.push(new MECHANT(Math.random() * canvas.width, Math.random() * canvas.height));
     }
 }
@@ -49,7 +49,7 @@ var phase = 0;
 
 var loop = function () {
     if (joueur.life > 0) {
-        if(joueur.bonus == "killer"){
+        if (joueur.bonus == "killer") {
             joueur.tirer();
         }
         window.requestAnimationFrame(loop);
@@ -65,22 +65,22 @@ var loop = function () {
         if(MECHANTS.length == 0 ){
             joueur.level++;
             nb_monster = (5 * (joueur.level * 0.7));
-            if (nb_monster >= 15){
-                for (var i = 0 ; i <= 15 ; i++){
-                    nb_monster = nb_monster - 1 ;
+            if (nb_monster >= 15) {
+                for (var i = 0; i <= 15; i++) {
+                    nb_monster = nb_monster - 1;
                     MECHANTS.push(new MECHANT(Math.random() * canvas.width, Math.random() * canvas.height));
                 }
-            }else {
-                for(var i = 0 ; i <= (5 * (joueur.level * 0.7)) ; i++){
+            } else {
+                for (var i = 0; i <= (5 * (joueur.level * 0.7)); i++) {
                     MECHANTS.push(new MECHANT(Math.random() * canvas.width, Math.random() * canvas.height));
                 }
             }
 
         }
-        if(nb_monster > 0){
-            if (MECHANTS.length < 15){
-                while (MECHANTS.length < 15){
-                    nb_monster = nb_monster - 1 ;
+        if (nb_monster > 0) {
+            if (MECHANTS.length < 15) {
+                while (MECHANTS.length < 15) {
+                    nb_monster = nb_monster - 1;
                     MECHANTS.push(new MECHANT(Math.random() * canvas.width, Math.random() * canvas.height));
                 }
             }
@@ -95,6 +95,13 @@ var loop = function () {
         controle();
         joueur.avancer();
 
+        var val_score = '<a>' + joueur.score + '</a>';
+        document.getElementById("score").innerHTML = val_score;
+        var val_life = '<a>' + joueur.life + '</a>';
+        document.getElementById("life").innerHTML = val_life;
+        var val_level = '<a>' + joueur.level + '</a>';
+        document.getElementById("level").innerHTML = val_level;
+        
         draw(ctx);
         ctx.fillText("Vie: " + joueur.life + "% Score: " + joueur.score + " Level: " + joueur.level, canvas.width >> 1, 20);
 
@@ -212,7 +219,7 @@ window.addEventListener('keyup', function (event) {
 var draw = function (ctx) {
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    ctx.drawImage(background ,  0, 0 , canvas.width , canvas.height);
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     for (var i = 0; i < PROJECTILES.length; i++) {
         if (PROJECTILES.stopped) {
             PROJECTILES.splice(i, 1);
