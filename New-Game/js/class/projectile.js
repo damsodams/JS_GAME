@@ -1,6 +1,6 @@
 var PROJECTILES = [];
 
-var PROJECTILE = function(x,y,a,v, dmax=400){
+var PROJECTILE = function(x,y,a,v, dmax=400,kill = false){
   this.x=x;
   this.y=y;
   this.a=a;
@@ -9,6 +9,7 @@ var PROJECTILE = function(x,y,a,v, dmax=400){
   this.d=0;
   this.face=document.getElementById('projectile');
   this.stopped=false;
+  this.kill= false;
 
   this.avancer = function(){
     this.d+=this.v;
@@ -30,6 +31,7 @@ var PROJECTILE = function(x,y,a,v, dmax=400){
           {
             MECHANTS[i].meurt();
             MECHANTS.splice(i,1);
+            this.kill = true;
             this.d=this.dmax;
             this.stopped = true;
           }
