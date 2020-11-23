@@ -11,9 +11,7 @@ function r2d(radians) {
 
 let background = document.getElementById('background');
 
-background.addEventListener('load', function(){
-    ctx.drawImage(image ,  0, 0 , canvas.width , canvas.height);
-}, false);
+
 
 var joueur = new JOUEUR(10, 10, 50, 25);
 var i = 0;
@@ -85,6 +83,7 @@ var loop = function () {
             }
 
         }
+        controle();
         controle();
         joueur.avancer();
 
@@ -190,11 +189,11 @@ window.addEventListener('keyup', function (event) {
 }, false);
 
 
-//  document.addEventListener('keyup', controle);
-
 
 var draw = function (ctx) {
+
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.drawImage(background ,  0, 0 , canvas.width , canvas.height);
     for (var i = 0; i < PROJECTILES.length; i++) {
         if (PROJECTILES.stopped) {
             PROJECTILES.splice(i, 1);

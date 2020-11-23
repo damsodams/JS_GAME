@@ -1,6 +1,6 @@
 
 var JOUEUR = function(x,y,a,v){
-  this.face="😡";
+  this.face= document.getElementById('joueur');
   this.x=x;
   this.y=y;
   this.a=a;
@@ -37,12 +37,12 @@ var JOUEUR = function(x,y,a,v){
     var dy = Math.sin( arad ) * this.v;
     if((this.x+dx <= canvas.width) && (this.y+dy <= canvas.height) && (this.x+dx >= 0) && (this.y+dy >= 0)){
       this.aller(this.x+dx,this.y+dy);
-      this.face="😡";
+      this.face=document.getElementById('joueur');
       for(var i =0; i<MECHANTS.length;i++)
       {
         if( distance(this, MECHANTS[i]) < 20)
         {
-          this.face="🥵";
+          this.face=document.getElementById('joueur');
           this.life--;
         }
       }
@@ -66,6 +66,7 @@ var JOUEUR = function(x,y,a,v){
     ctx.moveTo(this.x, this.y);
     ctx.lineTo(this.x+dx, this.y+dy);
     ctx.stroke();
-    ctx.fillText(this.face,Math.ceil(this.x),Math.ceil(this.y));
+   // ctx.drawImage()
+    ctx.drawImage(this.face ,  Math.ceil(this.x),Math.ceil(this.y) , 50, 25);
   }
 }

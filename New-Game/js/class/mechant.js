@@ -31,8 +31,8 @@ var MECHANT = function (x, y) {
 
     this.meurt = function () {
         this.alive = false;
-        perso.score++;
-        if (perso.score % 15 == 0) {
+        joueur.score++;
+        if (joueur.score % 15 == 0) {
             if (randomInteger(0, 2) == 1) {
                 this.face = "👿";
                 var bn = new BONUS(this.x, this.y);
@@ -46,11 +46,11 @@ var MECHANT = function (x, y) {
     }
 
     this.ia = function () {
-        if(perso.bonus == "ghost"){
+        if(joueur.bonus == "ghost"){
             this.x = 10;
             this.y = 10;
         }else{
-            this.a = r2d(Math.atan2(perso.y - this.y, perso.x - this.x));
+            this.a = r2d(Math.atan2(joueur.y - this.y, joueur.x - this.x));
             pi = Math.PI;
             arad = (this.a / 180) * pi;
             var dx = Math.cos(arad) * this.v;
