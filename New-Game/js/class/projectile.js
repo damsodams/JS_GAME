@@ -7,7 +7,7 @@ var PROJECTILE = function(x,y,a,v, dmax=400){
   this.v=v;
   this.max = dmax;
   this.d=0;
-  this.face="./img/Bullet.png";
+  this.face=document.getElementById('projectile');
   this.stopped=false;
 
   this.avancer = function(){
@@ -39,6 +39,7 @@ var PROJECTILE = function(x,y,a,v, dmax=400){
   };
 
   this.draw = function(ctx){
-    ctx.fillText(this.face,Math.ceil(this.x),Math.ceil(this.y));
+    ctx.drawImage(this.face,Math.ceil(this.x),Math.ceil(this.y),25,25);
+
   }
 }

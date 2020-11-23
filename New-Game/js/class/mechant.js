@@ -26,7 +26,7 @@ var MECHANT = function (x, y) {
     this.y = y;
     this.a = 0;
     this.v = 1;
-    this.face = "😈"
+    this.face = document.getElementById('mechant_vivant');
     this.alive = true;
 
     this.meurt = function () {
@@ -34,13 +34,13 @@ var MECHANT = function (x, y) {
         joueur.score++;
         if (joueur.score % 15 == 0) {
             if (randomInteger(0, 2) == 1) {
-                this.face = "👿";
+                this.face = document.getElementById('mechant_mort');
                 var bn = new BONUS(this.x, this.y);
                 bn.setter(randomInteger(1, 4));
                 BONUX.push(bn);
             }
         } else {
-            this.face = "👿";
+            this.face = document.getElementById('mechant_mort');
         }
         //MECHANTS.push(new MECHANT(Math.random()*canvas.width,Math.random()*canvas.height));
     }
@@ -62,7 +62,7 @@ var MECHANT = function (x, y) {
 
     }
     this.draw = function (ctx) {
-        ctx.fillText(this.face, Math.ceil(this.x), Math.ceil(this.y));
+        ctx.drawImage(this.face, Math.ceil(this.x), Math.ceil(this.y),25,25)
         this.ia();
     }
 }

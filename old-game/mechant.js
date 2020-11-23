@@ -26,7 +26,7 @@ var MECHANT = function (x, y) {
     this.y = y;
     this.a = 0;
     this.v = 1;
-    this.face = "😈"
+    this.face =
     this.alive = true;
 
     this.meurt = function () {
