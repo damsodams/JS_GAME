@@ -53,6 +53,15 @@ var loop = function () {
             joueur.tirer();
         }
         window.requestAnimationFrame(loop);
+        if (PROJECTILES.length != 0){
+            for(var i = 0 ; i <= PROJECTILES.length - 1 ; i++){
+                console.log(PROJECTILES[i].kill);
+                 if (PROJECTILES[i].kill == true){
+                    PROJECTILES.splice(i);
+
+                }
+            }
+        }
         if(MECHANTS.length == 0 ){
             joueur.level++;
             nb_monster = (5 * (joueur.level * 0.7));
@@ -84,14 +93,24 @@ var loop = function () {
 
         }
         controle();
-        controle();
         joueur.avancer();
 
         draw(ctx);
         ctx.fillText("Vie: " + joueur.life + "% Score: " + joueur.score + " Level: " + joueur.level, canvas.width >> 1, 20);
+
+
     } else {
         draw(ctx);
-        ctx.fillText("Perdu! 🤯", canvas.width >> 1, canvas.height >> 1);
+        var end = document.getElementById("fin");
+        ctx.drawImage(end , 0,0,canvas.width, canvas.height);
+        ctx.font = "30px Verdana";
+// Create gradient
+        var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        gradient.addColorStop("0"," white");
+        gradient.addColorStop("0.5", "white");
+        gradient.addColorStop("1.0", "white");
+        ctx.fillStyle = gradient;
+        ctx.fillText("Perdu 🤯", canvas.width >> 1, canvas.height >> 1);
         showReplayButton();
     }
 }
