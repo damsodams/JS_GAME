@@ -5,28 +5,24 @@
 </head>
 
 <body>
-    <header>
-    </header>
-    <main role="main" class="flex-shrink-0">
-        <div class="container">
-            <canvas id="canvas" style="border: 2px solid #888; width:800px; height:600px;" width="800"
+<header>
+    <img id='background' style="display: none" src='img/background.jpg'>
+    <img id='joueur' style="display: none" src='./img/Warrior.png'>
+</header>
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <canvas id="canvas" style="border: 2px solid #888; width:800px; height:600px;" width="800"
                 height="600"></canvas>
-            <div style='display:none;'>
-                <img id='joueur' src='./img/Warrior.png'>
-            </div>
-        </div>
-    </main>
-    <footer>
-    </footer>
+    </div>
+</main>
+<footer>
+</footer>
+<script src="js/core/main.js"></script>
+<script src="js/class/bonus.js"></script>
+<script src="js/class/joueur.js"></script>
+<script src="js/class/projectile.js"></script>
+<script src="js/class/mechant.js"></script>
 </body>
-<script>
-    let canvas = document.getElementById('canvas');
-    let ctx = canvas.getContext('2d');
-    let image = document.getElementById('joueur');
 
-    image.addEventListener('load', function () {
-        ctx.drawImage(image, 350, 250, 50, 25);
-    }, false);
-</script>
 
 </html>

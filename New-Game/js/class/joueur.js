@@ -1,5 +1,5 @@
 
-var PERSO = function(x,y,a,v){
+var JOUEUR = function(x,y,a,v){
   this.face="😡";
   this.x=x;
   this.y=y;
