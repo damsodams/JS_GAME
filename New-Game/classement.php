@@ -1,3 +1,5 @@
+<?php include "controller/recupController.php";?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +41,19 @@
                     <th scope="col">Partie jouées</th>
                     <th scope="col">Score max</th>
                   </tr>
+                  <?php
+                    $i = 0;
+                    foreach($lignes as $ligne){
+                        echo "
+                        <tr></tr>
+                        <th scope='row'>".$i."</th>
+                        <td>".$ligne['name']."</td>
+                        <td>Partiejouer</td>
+                        <td>".$ligne['score']."</td>";
+                        $i++;
+                    }
+                  ?>
+
                 </thead>
                 <tbody id="tableauClassement">
                 </tbody>
