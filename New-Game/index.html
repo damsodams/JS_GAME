@@ -40,6 +40,13 @@
                 vivants depuis le début de l'apocalyspse, septembre 2017. Allez-vous réussir à affrontez et sortir vivant face à la horde de Zombies ?</p>
             <p>Déplacez-vous avec les touches <strong>Z</strong>,<strong>Q</strong>,<strong>S</strong>,<strong>D</strong> et envoyez des projectiles sur les démons en utilisant la <strong>barre d'espace</strong><br><strong>Ou </strong>
                 Déplacez-vous avec z et le pointeur de la souris et envoyez des projectiles sur les démons avec un <strong>Click droit</strong></p>
+														  <div class="navbar-brand js-scroll-trigger" style="color:#000000;">
+======================================================================<br></div>
+				  <div class="navbar-brand js-scroll-trigger" style="color:#000000;">
+				                          <div class="navbar-brand js-scroll-trigger" style="color:#000000;">
+										<input type="text" id="name" name="name" class="form-control"placeholder="Saisir ton nom"/>
+                        </div>
+						<br>======================================================================<br>
                         <div class="navbar-brand js-scroll-trigger" style="color:#000000;">
                             <a >Vie : <a id="life"></a></a> | <a >Score : <a id="score"></a> </a> | <a >Level : <a id="level"></a> </a>
 
@@ -78,6 +85,22 @@
                         .
                     </p>
                 </div>
+
+                <script>
+                    function clicked(){
+                        $.ajax({
+                            url : "controller\\scoreController.php",
+                            data : { name : "tst", score : 1 },
+                            type : "post",
+                            success : function(statut){ // code_html contient le HTML renvoyé
+                                console.log(statut);
+                            },
+                            error : function(resultat, statut, erreur){
+                                console.log(statut);
+                            }
+                        });
+                    }
+                </script>
             </div>
         </div>
     </footer>
