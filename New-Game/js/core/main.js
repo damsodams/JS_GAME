@@ -39,6 +39,7 @@ function showReplayButton() {
     var replayButton = document.createElement("button");
     replayButton.innerHTML = "Rejouer";
     replayButton.setAttribute("class", "btn btn-primary");
+	    replayButton.setAttribute("style", "background-color: #e7e7e7; color: black;");
     replayButton.addEventListener("click", function (e) {
         document.location.reload(true);
     });
@@ -103,7 +104,7 @@ var loop = function () {
         document.getElementById("level").innerHTML = val_level;
         
         draw(ctx);
-        ctx.fillText("Vie: " + joueur.life + "% Score: " + joueur.score + " Level: " + joueur.level, canvas.width >> 1, 20);
+        //ctx.fillText("Vie: " + joueur.life + "% Score: " + joueur.score + " Level: " + joueur.level, canvas.width >> 1, 20);
 
 
     } else {
