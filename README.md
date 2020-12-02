@@ -4,4 +4,5 @@ Groupe :
 - Damien Payet
 - Florent Pelletier
 
-Le plan du jeu est disponible dans JS_GAME/Plan
+Le rapport du projet est disponible dans JS_GAME/Documents
+Le code est disponible à JS_GAME/New-Game
