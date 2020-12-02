@@ -46,6 +46,7 @@ function showStartButton(){
             state = 1 ;
             loop();
             replayButtonDiv.innerHTML='';
+            listener();
         }else{
             alert("Merci de saisir un pseudo de plus de 5 caractere");
         }
@@ -193,49 +194,51 @@ canvas.addEventListener('mousemove', function (evt) {
 canvas.addEventListener('click', function (evt) {
     joueur.tirer();
 }, false);
+function listener(){
+    window.addEventListener('keydown', function (event) {
+        //console.log(event.keyCode);
+        switch (event.keyCode) {
+            case 81: // Left
+                KEYS.LEFT = true;
+                break;
+            case 90: // Up
+                KEYS.UP = true;
+                break;
+            case 68: // Right
+                KEYS.RIGHT = true;
+                break;
+            case 83: // Down
+                KEYS.DOWN = true;
+                break;
+            case 32: // shoot
+                KEYS.FIRE = true;
+                break;
+        }
+        event.preventDefault();
+    }, false);
+    window.addEventListener('keyup', function (event) {
+        //console.log(event.keyCode);
+        switch (event.keyCode) {
+            case 81: // Left
+                KEYS.LEFT = false;
+                break;
+            case 90: // Up
+                KEYS.UP = false;
+                break;
+            case 68: // Right
+                KEYS.RIGHT = false;
+                break;
+            case 83: // Down
+                KEYS.DOWN = false;
+                break;
+            case 32: // shoot
+                KEYS.FIRE = false;
+                break;
+        }
+        event.preventDefault();
+    }, false);
+}
 
-canvas.addEventListener('keydown', function (event) {
-    //console.log(event.keyCode);
-    switch (event.keyCode) {
-        case 81: // Left
-            KEYS.LEFT = true;
-            break;
-        case 90: // Up
-            KEYS.UP = true;
-            break;
-        case 68: // Right
-            KEYS.RIGHT = true;
-            break;
-        case 83: // Down
-            KEYS.DOWN = true;
-            break;
-        case 32: // shoot
-            KEYS.FIRE = true;
-            break;
-    }
-    event.preventDefault();
-}, false);
-canvas.addEventListener('keyup', function (event) {
-    //console.log(event.keyCode);
-    switch (event.keyCode) {
-        case 81: // Left
-            KEYS.LEFT = false;
-            break;
-        case 90: // Up
-            KEYS.UP = false;
-            break;
-        case 68: // Right
-            KEYS.RIGHT = false;
-            break;
-        case 83: // Down
-            KEYS.DOWN = false;
-            break;
-        case 32: // shoot
-            KEYS.FIRE = false;
-            break;
-    }
-    event.preventDefault();
-}, false);
 
 
 
