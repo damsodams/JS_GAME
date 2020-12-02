@@ -50,23 +50,20 @@ var JOUEUR = function(x,y,a,v){
   }
 
   this.tirer= function(){
-
-    PROJECTILES.push( new PROJECTILE(this.x, this.y, this.a, this.v+10, 1000)); // 3-> la vitesse du projectile
-
-    }
-
+    PROJECTILES.push( new PROJECTILE(this.x - 25, this.y -12.5, this.a, this.v+10, 1000)); // 3-> la vitesse du projectile - 25 -12 va varier en fonction de la taille du logo joueur.
+  }
 
   this.draw = function(ctx){
     pi = Math.PI;
     arad = ( this.a / 180 ) * pi;
-    var dx = Math.cos( arad ) * 30;
-    var dy = Math.sin( arad ) * 30;
+    var dx = Math.cos( arad ) * 40;//Bar plus longue
+    var dy = Math.sin( arad ) * 40;
     ctx.beginPath();
     ctx.strokeStyle="#f00";
     ctx.moveTo(this.x, this.y);
     ctx.lineTo(this.x+dx, this.y+dy);
     ctx.stroke();
    // ctx.drawImage()
-    ctx.drawImage(this.face ,  Math.ceil(this.x),Math.ceil(this.y) , 50, 25);
+    ctx.drawImage(this.face ,  Math.ceil(this.x) - 25 ,Math.ceil(this.y - 12.5) , 50, 25);//Demarage au centre du player
   }
 }
