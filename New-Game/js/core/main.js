@@ -1,5 +1,4 @@
 
-
 var distance = function (A, B) {
     return Math.hypot(A.x - B.x, A.y - B.y);
 }
@@ -32,6 +31,7 @@ for (i = 0; i < 5; i++) {
         MECHANTS.push(new MECHANT(Math.random() * canvas.width, Math.random() * canvas.height));
     }
 }
+
 
 function showReplayButton() {
     // instance du canvas = canvas
