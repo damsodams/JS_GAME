@@ -86,6 +86,22 @@
                         .
                     </p>
                 </div>
+
+                <script>
+                    function clicked(){
+                        $.ajax({
+                            url : "controller\\scoreController.php",
+                            data : { name : "tst", score : 1 },
+                            type : "post",
+                            success : function(statut){ // code_html contient le HTML renvoyé
+                                console.log(statut);
+                            },
+                            error : function(resultat, statut, erreur){
+                                console.log(statut);
+                            }
+                        });
+                    }
+                </script>
             </div>
         </div>
     </footer>

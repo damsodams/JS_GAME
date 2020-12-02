@@ -12,7 +12,8 @@ function r2d(radians) {
 let background = document.getElementById('background');
 
 
-
+var state = 0;
+showStartButton();
 var joueur = new JOUEUR(10, 10, 50, 25);
 var i = 0;
 var nb_monster = 0;
@@ -32,7 +33,19 @@ for (i = 0; i < 5; i++) {
         MECHANTS.push(new MECHANT(Math.random() * canvas.width, Math.random() * canvas.height));
     }
 }
-
+function showStartButton(){
+    var replayButtonDiv = document.getElementById("replayButton");
+    var startButton = document.createElement("button");
+    startButton.innerHTML = "Jouer";
+    startButton.setAttribute("class", "btn btn-primary");
+    startButton.setAttribute("style", "background-color: #e7e7e7; color: black;");
+    startButton.addEventListener("click", function (e) {
+        state = 1 ;
+        loop();
+        replayButtonDiv.innerHTML='';
+    });
+    replayButtonDiv.appendChild(startButton);
+}
 function showReplayButton() {
     // instance du canvas = canvas
     var replayButtonDiv = document.getElementById("replayButton");
@@ -102,7 +115,7 @@ var loop = function () {
         document.getElementById("life").innerHTML = val_life;
         var val_level = '<a>' + joueur.level + '</a>';
         document.getElementById("level").innerHTML = val_level;
-        
+
         draw(ctx);
         //ctx.fillText("Vie: " + joueur.life + "% Score: " + joueur.score + " Level: " + joueur.level, canvas.width >> 1, 20);
 
@@ -238,6 +251,10 @@ var draw = function (ctx) {
 
     joueur.draw(ctx);
 }
-loop();
+
+if(state == 1){
+    loop();
+}
+
 
 
