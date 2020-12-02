@@ -40,8 +40,8 @@ function showStartButton(){
     startButton.setAttribute("style", "background-color: #e7e7e7; color: black;");
     startButton.addEventListener("click", function (e) {
         var namep = document.getElementById("name_player");
-        console.log(namep.size);
-        if(namep.textLength > 5){
+
+        if(namep.value != ""){
             playername = namep.value;
             state = 1 ;
             loop();
@@ -50,7 +50,6 @@ function showStartButton(){
         }else{
             alert("Merci de saisir un pseudo de plus de 5 caractere");
         }
-
     });
     replayButtonDiv.appendChild(startButton);
 }
