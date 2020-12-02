@@ -1,4 +1,4 @@
-<?php include "controller/recupController.php";?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,21 +38,9 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Pseudo</th>
-                    <th scope="col">Partie jouées</th>
                     <th scope="col">Score max</th>
                   </tr>
-                  <?php
-                    $i = 0;
-                    foreach($lignes as $ligne){
-                        echo "
-                        <tr></tr>
-                        <th scope='row'>".$i."</th>
-                        <td>".$ligne['name']."</td>
-                        <td>Partiejouer</td>
-                        <td>".$ligne['score']."</td>";
-                        $i++;
-                    }
-                  ?>
+                  <?php include "controller/recupController.php";?>
 
                 </thead>
                 <tbody id="tableauClassement">
@@ -92,8 +80,6 @@
         <div class="container"><small>Copyright © Massacre de zombie 2020</small></div>
     </div>
     <!-- Bootstrap core JS-->
-    <script src="js/core/main.js"></script>
-    <script src="js/core/classement.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Third party plugin JS-->

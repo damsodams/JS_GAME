@@ -10,7 +10,7 @@ function r2d(radians) {
 
 let background = document.getElementById('background');
 
-
+var playername = "";
 var state = 0;
 showStartButton();
 var joueur = new JOUEUR(10, 10, 50, 25);
@@ -39,9 +39,17 @@ function showStartButton(){
     startButton.setAttribute("class", "btn btn-primary");
     startButton.setAttribute("style", "background-color: #e7e7e7; color: black;");
     startButton.addEventListener("click", function (e) {
-        state = 1 ;
-        loop();
-        replayButtonDiv.innerHTML='';
+        var namep = document.getElementById("name_player");
+        console.log(namep.size);
+        if(namep.textLength > 5){
+            playername = namep.value;
+            state = 1 ;
+            loop();
+            replayButtonDiv.innerHTML='';
+        }else{
+            alert("Merci de saisir un pseudo de plus de 5 caractere");
+        }
+
     });
     replayButtonDiv.appendChild(startButton);
 }
@@ -131,6 +139,8 @@ var loop = function () {
         gradient.addColorStop("1.0", "white");
         ctx.fillStyle = gradient;
         ctx.fillText("Perdu 🤯", canvas.width >> 1, canvas.height >> 1);
+        testbdd();
+        console.log("jsuisla");
         showReplayButton();
     }
 }
@@ -184,7 +194,7 @@ canvas.addEventListener('click', function (evt) {
     joueur.tirer();
 }, false);
 
-window.addEventListener('keydown', function (event) {
+canvas.addEventListener('keydown', function (event) {
     //console.log(event.keyCode);
     switch (event.keyCode) {
         case 81: // Left
@@ -205,7 +215,7 @@ window.addEventListener('keydown', function (event) {
     }
     event.preventDefault();
 }, false);
-window.addEventListener('keyup', function (event) {
+canvas.addEventListener('keyup', function (event) {
     //console.log(event.keyCode);
     switch (event.keyCode) {
         case 81: // Left
@@ -249,6 +259,19 @@ var draw = function (ctx) {
     }
 
     joueur.draw(ctx);
+}
+function testbdd(){
+    $.ajax({
+        url : "controller\\scoreController.php",
+        data : { name : playername, score : joueur.score },
+        type : "post",
+        success : function(statut){ // code_html contient le HTML renvoyé
+            console.log(statut);
+        },
+        error : function(resultat, statut, erreur){
+            console.log(statut);
+        }
+    });
 }
 
 if(state == 1){
