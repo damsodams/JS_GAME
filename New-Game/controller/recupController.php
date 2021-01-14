@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('vps.hacktive.live', 'game_db', 'game_js', 'game_db');
+$conn = mysqli_connect('xx', 'xx', 'xx', 'xx');
 if (!$conn) {
     die('Erreur de connexion');
 } else {
